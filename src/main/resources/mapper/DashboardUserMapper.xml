@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yss.report.bitool.mapper.DashboardUserMapper">
+  <resultMap id="BaseResultMap" type="com.yss.report.bitool.entity.DashboardUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="*Entity_USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="*Entity_LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
+    <result column="*Entity_USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="*Entity_USER_PASSWORD" jdbcType="VARCHAR" property="userPassword" />
+    <result column="*Entity_USER_STATUS" jdbcType="VARCHAR" property="userStatus" />
+  </resultMap>
+</mapper>

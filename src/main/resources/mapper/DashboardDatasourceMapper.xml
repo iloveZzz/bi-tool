@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yss.report.bitool.mapper.DashboardDatasourceMapper">
+  <resultMap id="BaseResultMap" type="com.yss.report.bitool.entity.DashboardDatasource">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="*Entity_DATASOURCE_ID" jdbcType="NUMERIC" property="datasourceId" />
+    <result column="*Entity_USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="*Entity_SOURCE_NAME" jdbcType="VARCHAR" property="sourceName" />
+    <result column="*Entity_SOURCE_TYPE" jdbcType="VARCHAR" property="sourceType" />
+    <result column="*Entity_CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="*Entity_UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="*Entity_CONFIG" jdbcType="CLOB" property="config" />
+  </resultMap>
+</mapper>

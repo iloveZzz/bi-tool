@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yss.report.bitool.mapper.DashboardCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.yss.report.bitool.entity.DashboardCategory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="*Entity_CATEGORY_ID" jdbcType="NUMERIC" property="categoryId" />
+    <result column="*Entity_CATEGORY_NAME" jdbcType="VARCHAR" property="categoryName" />
+    <result column="*Entity_USER_ID" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+</mapper>

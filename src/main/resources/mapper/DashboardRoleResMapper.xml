@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yss.report.bitool.mapper.DashboardRoleResMapper">
+  <resultMap id="BaseResultMap" type="com.yss.report.bitool.entity.DashboardRoleRes">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="*Entity_ROLE_RES_ID" jdbcType="NUMERIC" property="roleResId" />
+    <result column="*Entity_ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+    <result column="*Entity_RES_TYPE" jdbcType="VARCHAR" property="resType" />
+    <result column="*Entity_RES_ID" jdbcType="NUMERIC" property="resId" />
+    <result column="*Entity_PERMISSION" jdbcType="VARCHAR" property="permission" />
+  </resultMap>
+</mapper>

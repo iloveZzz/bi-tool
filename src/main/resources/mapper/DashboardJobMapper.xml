@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yss.report.bitool.mapper.DashboardJobMapper">
+  <resultMap id="BaseResultMap" type="com.yss.report.bitool.entity.DashboardJob">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="*Entity_JOB_ID" jdbcType="NUMERIC" property="jobId" />
+    <result column="*Entity_JOB_NAME" jdbcType="VARCHAR" property="jobName" />
+    <result column="*Entity_CRON_EXP" jdbcType="VARCHAR" property="cronExp" />
+    <result column="*Entity_START_DATE" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="*Entity_END_DATE" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="*Entity_JOB_TYPE" jdbcType="VARCHAR" property="jobType" />
+    <result column="*Entity_USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="*Entity_LAST_EXEC_TIME" jdbcType="TIMESTAMP" property="lastExecTime" />
+    <result column="*Entity_JOB_STATUS" jdbcType="NUMERIC" property="jobStatus" />
+    <result column="*Entity_JOB_CONFIG" jdbcType="CLOB" property="jobConfig" />
+    <result column="*Entity_EXEC_LOG" jdbcType="CLOB" property="execLog" />
+  </resultMap>
+</mapper>

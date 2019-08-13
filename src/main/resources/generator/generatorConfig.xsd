@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="generatorConfiguration" type="generatorConfigurationType">
+    <xs:annotation>
+      <xs:documentation>suppress MybatisGenerateCustomPluginInspection</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="propertyType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="value" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="pluginType">
+    <xs:sequence>
+      <xs:element type="propertyType" name="property" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="type"/>
+  </xs:complexType>
+  <xs:complexType name="jdbcConnectionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="driverClass"/>
+        <xs:attribute type="xs:string" name="connectionURL"/>
+        <xs:attribute type="xs:string" name="userId"/>
+        <xs:attribute type="xs:string" name="password"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="javaModelGeneratorType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="targetPackage"/>
+        <xs:attribute type="xs:string" name="targetProject"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="sqlMapGeneratorType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="targetPackage"/>
+        <xs:attribute type="xs:string" name="targetProject"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="javaClientGeneratorType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="targetPackage"/>
+        <xs:attribute type="xs:string" name="targetProject"/>
+        <xs:attribute type="xs:string" name="type"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tableType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="tableName"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="contextType">
+    <xs:sequence>
+      <xs:element type="propertyType" name="property" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="pluginType" name="plugin"/>
+      <xs:element type="jdbcConnectionType" name="jdbcConnection"/>
+      <xs:element type="javaModelGeneratorType" name="javaModelGenerator">
+        <xs:annotation>
+          <xs:documentation>MyBatis 生成器只需要生成 Model</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="sqlMapGeneratorType" name="sqlMapGenerator"/>
+      <xs:element type="javaClientGeneratorType" name="javaClientGenerator"/>
+      <xs:element type="tableType" name="table"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id"/>
+    <xs:attribute type="xs:string" name="targetRuntime"/>
+    <xs:attribute type="xs:string" name="defaultModelType"/>
+  </xs:complexType>
+  <xs:complexType name="generatorConfigurationType">
+    <xs:sequence>
+      <xs:element type="contextType" name="context"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

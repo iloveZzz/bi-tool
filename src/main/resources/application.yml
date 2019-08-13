@@ -1,0 +1,12 @@
+server:
+  port: 8090
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+  notEmpty: true
+mybatis:
+  base-packages: com.yss.report.bitool.mapper
+  mapper-locations: classpath:/mapper/*
+spring:
+  profiles:
+    include: dev
