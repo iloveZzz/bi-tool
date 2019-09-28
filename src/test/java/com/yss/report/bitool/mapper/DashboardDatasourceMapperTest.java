@@ -1,5 +1,6 @@
 package com.yss.report.bitool.mapper;
 
+import com.google.gson.Gson;
 import com.yss.report.bitool.entity.DashboardDatasource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +20,6 @@ public class DashboardDatasourceMapperTest {
     @Test
     public void test(){
         List<DashboardDatasource> dashboardDatasources = dashboardDatasourceMapper.selectAll();
-        System.out.println(dashboardDatasources);
+        System.out.println(new Gson().toJson(dashboardDatasources));
     }
 }

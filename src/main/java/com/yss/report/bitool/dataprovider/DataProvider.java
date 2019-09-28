@@ -13,10 +13,8 @@ import com.yss.report.bitool.dataprovider.config.DimensionConfig;
 import com.yss.report.bitool.dataprovider.expression.NowFunction;
 import com.yss.report.bitool.dataprovider.result.AggregateResult;
 import com.yss.report.bitool.util.NaturalOrderComparator;
-import oracle.net.ano.AuthenticationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -26,8 +24,7 @@ import java.util.stream.Collectors;
  */
 public abstract class DataProvider {
 
-    @Autowired
-    private AuthenticationService authenticationService;
+
     private InnerAggregator innerAggregator;
     protected Map<String, String> dataSource;
     protected Map<String, String> query;

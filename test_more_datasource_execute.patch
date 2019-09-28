@@ -1,0 +1,947 @@
+Index: src/main/java/com/yss/report/bitool/entity/DashboardHomepage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardHomepage.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardHomepage.java	(date 1569655486640)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_HOMEPAGE")
++@Table(name = "DASHBOARD_HOMEPAGE")
+ public class DashboardHomepage {
+     @Id
+     @Column(name = "BOARD_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardUser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardUser.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardUser.java	(date 1569655486547)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_USER")
++@Table(name = "DASHBOARD_USER")
+ public class DashboardUser {
+     @Id
+     @Column(name = "USER_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardRoleRes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardRoleRes.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardRoleRes.java	(date 1569655486606)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_ROLE_RES")
++@Table(name = "DASHBOARD_ROLE_RES")
+ public class DashboardRoleRes {
+     @Id
+     @Column(name = "ROLE_RES_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardDataset.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardDataset.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardDataset.java	(date 1569655486559)
+@@ -3,7 +3,7 @@
+ import java.util.Date;
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_DATASET")
++@Table(name = "DASHBOARD_DATASET")
+ public class DashboardDataset {
+     @Id
+     @Column(name = "DATASET_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardRole.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardRole.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardRole.java	(date 1569655486629)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_ROLE")
++@Table(name = "DASHBOARD_ROLE")
+ public class DashboardRole {
+     @Id
+     @Column(name = "ROLE_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardUserRole.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardUserRole.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardUserRole.java	(date 1569655486536)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_USER_ROLE")
++@Table(name = "DASHBOARD_USER_ROLE")
+ public class DashboardUserRole {
+     @Id
+     @Column(name = "USER_ROLE_ID")
+Index: src/main/java/com/yss/report/bitool/dataprovider/DataProviderManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/dataprovider/DataProviderManager.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/dataprovider/DataProviderManager.java	(date 1569659873269)
+@@ -33,7 +33,7 @@
+     private static ApplicationContext applicationContext;
+ 
+     static {
+-        Set<Class<?>> classSet = new Reflections("org.cboard").getTypesAnnotatedWith(ProviderName.class);
++        Set<Class<?>> classSet = new Reflections("com.yss.report.bitool").getTypesAnnotatedWith(ProviderName.class);
+         for (Class c : classSet) {
+             if (!c.isAssignableFrom(DataProvider.class)) {
+                 providers.put(((ProviderName) c.getAnnotation(ProviderName.class)).name(), c);
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1565846378000)
++++ pom.xml	(date 1569655148832)
+@@ -82,8 +82,8 @@
+         </dependency>
+         <dependency>
+             <groupId>com.oracle</groupId>
+-            <artifactId>ojdbc8</artifactId>
+-            <version>12.2.0.1</version>
++            <artifactId>ojdbc6</artifactId>
++            <version>11.2.0.3</version>
+         </dependency>
+         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+         <dependency>
+Index: src/main/java/com/yss/report/bitool/controller/DashboardController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/controller/DashboardController.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/controller/DashboardController.java	(date 1569658063634)
+@@ -1,12 +1,17 @@
+ package com.yss.report.bitool.controller;
+ 
++import com.alibaba.fastjson.JSONObject;
++import com.google.common.base.Functions;
+ import com.google.common.collect.Lists;
++import com.google.common.collect.Maps;
+ import com.yss.report.bitool.dto.ViewDashboardDataset;
++import com.yss.report.bitool.dto.ViewDashboardDatasource;
+ import com.yss.report.bitool.entity.DashboardDataset;
+ import com.yss.report.bitool.mapper.DashboardDatasetMapper;
+ import com.yss.report.bitool.mapper.DashboardDatasourceMapper;
++import com.yss.report.bitool.service.DataProviderService;
+ import com.yss.report.bitool.service.DatasourceService;
+-import com.yss.report.bitool.dto.ViewDashboardDatasource;
++import com.yss.report.bitool.service.ServiceStatus;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.web.bind.annotation.GetMapping;
+ import org.springframework.web.bind.annotation.RequestMapping;
+@@ -14,7 +19,6 @@
+ import org.springframework.web.bind.annotation.RestController;
+ 
+ import java.util.List;
+-import java.util.Map;
+ 
+ /**
+  * Created by yfyuan on 2016/8/9.
+@@ -28,6 +32,8 @@
+     private DashboardDatasourceMapper datasourceDao;
+     @Autowired
+     private DashboardDatasetMapper datasetDao;
++    @Autowired
++    private DataProviderService dataProviderService;
+     @GetMapping(value = "/getDatasourceList")
+     public List<ViewDashboardDatasource> getDatasourceList() {
+         return datasourceService.getViewDatasourceList(() -> datasourceDao.selectAll());
+@@ -37,8 +43,10 @@
+         List<DashboardDataset> list = datasetDao.selectAll();
+         return Lists.transform(list, ViewDashboardDataset.TO);
+     }
+-//    @RequestMapping(value = "/getDatasourceParams")
+-//    public List<Map<String, Object>> getDatasourceParams(@RequestParam(name = "type") String type) {
+-//        return DataProviderViewManager.getDatasourceParams(type);
+-//    }
++    @GetMapping(value = "/test")
++    public ServiceStatus test(@RequestParam(name = "datasource", required = false) String datasource, @RequestParam(name = "query", required = false) String query) {
++        JSONObject queryO = JSONObject.parseObject(query);
++        JSONObject datasourceO = JSONObject.parseObject(datasource);
++        return dataProviderService.test(datasourceO, Maps.transformValues(queryO, Functions.toStringFunction()));
++    }
+ }
+Index: src/test/java/com/yss/report/bitool/mapper/DashboardDatasourceMapperTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/yss/report/bitool/mapper/DashboardDatasourceMapperTest.java	(date 1565846378000)
++++ src/test/java/com/yss/report/bitool/mapper/DashboardDatasourceMapperTest.java	(date 1569655541864)
+@@ -1,5 +1,6 @@
+ package com.yss.report.bitool.mapper;
+ 
++import com.google.gson.Gson;
+ import com.yss.report.bitool.entity.DashboardDatasource;
+ import org.junit.Test;
+ import org.junit.runner.RunWith;
+@@ -19,6 +20,6 @@
+     @Test
+     public void test(){
+         List<DashboardDatasource> dashboardDatasources = dashboardDatasourceMapper.selectAll();
+-        System.out.println(dashboardDatasources);
++        System.out.println(new Gson().toJson(dashboardDatasources));
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/com/yss/report/bitool/dataprovider/DataProvider.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/dataprovider/DataProvider.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/dataprovider/DataProvider.java	(date 1569660771842)
+@@ -13,10 +13,8 @@
+ import com.yss.report.bitool.dataprovider.expression.NowFunction;
+ import com.yss.report.bitool.dataprovider.result.AggregateResult;
+ import com.yss.report.bitool.util.NaturalOrderComparator;
+-import oracle.net.ano.AuthenticationService;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+-import org.springframework.beans.factory.annotation.Autowired;
+ 
+ import java.util.*;
+ import java.util.stream.Collectors;
+@@ -26,8 +24,7 @@
+  */
+ public abstract class DataProvider {
+ 
+-    @Autowired
+-    private AuthenticationService authenticationService;
++
+     private InnerAggregator innerAggregator;
+     protected Map<String, String> dataSource;
+     protected Map<String, String> query;
+Index: src/main/java/com/yss/report/bitool/service/DataProviderService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/service/DataProviderService.java	(date 1569659457773)
++++ src/main/java/com/yss/report/bitool/service/DataProviderService.java	(date 1569659457773)
+@@ -0,0 +1,31 @@
++package com.yss.report.bitool.service;
++
++import com.alibaba.fastjson.JSONObject;
++import com.google.common.base.Functions;
++import com.google.common.collect.Maps;
++import com.yss.report.bitool.dataprovider.DataProvider;
++import com.yss.report.bitool.dataprovider.DataProviderManager;
++import org.springframework.stereotype.Repository;
++
++import java.util.Map;
++
++/**
++ * @author daomingzhu
++ * @date 2019/9/28 16:01
++ */
++@Repository
++public class DataProviderService {
++    public ServiceStatus test(JSONObject dataSource, Map<String, String> query) {
++        try {
++            DataProvider dataProvider = DataProviderManager.getDataProvider(
++                    dataSource.getString("sourceType"),
++                    Maps.transformValues(dataSource.getJSONObject("config"), Functions.toStringFunction()),
++                    query, true);
++            dataProvider.test();
++            return new ServiceStatus(ServiceStatus.Status.Success, null);
++        } catch (Exception e) {
++            e.printStackTrace();
++            return new ServiceStatus(ServiceStatus.Status.Fail, e.getMessage());
++        }
++    }
++}
+Index: src/main/java/com/yss/report/bitool/service/ServiceStatus.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/service/ServiceStatus.java	(date 1569657535446)
++++ src/main/java/com/yss/report/bitool/service/ServiceStatus.java	(date 1569657535446)
+@@ -0,0 +1,66 @@
++package com.yss.report.bitool.service;
++
++/**
++ * Created by zyong on 2016/9/26.
++ */
++public class ServiceStatus {
++
++    private Status status;
++    private String msg;
++
++    private Long id;
++
++    public ServiceStatus(Status status, String msg) {
++        this.status = status;
++        this.msg = msg;
++    }
++
++    public ServiceStatus(Status status, String msg, Long id) {
++        this.status = status;
++        this.msg = msg;
++        this.id = id;
++    }
++
++    public enum Status {
++
++        Success(1), Fail(2);
++
++        private int status;
++
++        Status(int status) {
++            this.status = status;
++        }
++
++        public int getStatus() {
++            return status;
++        }
++
++        public String toString() {
++            return  new Integer(this.status).toString();
++        }
++    }
++
++    public String getStatus() {
++        return status.toString();
++    }
++
++    public void setStatus(Status status) {
++        this.status = status;
++    }
++
++    public String getMsg() {
++        return msg;
++    }
++
++    public void setMsg(String msg) {
++        this.msg = msg;
++    }
++
++    public Long getId() {
++        return id;
++    }
++
++    public void setId(Long id) {
++        this.id = id;
++    }
++}
+Index: src/test/java/com/yss/report/bitool/base/SpringBootTestBase.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/yss/report/bitool/base/SpringBootTestBase.java	(date 1569657880968)
++++ src/test/java/com/yss/report/bitool/base/SpringBootTestBase.java	(date 1569657880968)
+@@ -0,0 +1,10 @@
++package com.yss.report.bitool.base;
++
++import org.junit.runner.RunWith;
++import org.springframework.boot.test.context.SpringBootTest;
++import org.springframework.test.context.junit4.SpringRunner;
++
++@RunWith(SpringRunner.class)
++@SpringBootTest
++public class SpringBootTestBase {
++}
+\ No newline at end of file
+Index: src/test/java/com/yss/report/bitool/service/DataProviderServiceTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/yss/report/bitool/service/DataProviderServiceTest.java	(date 1569659578362)
++++ src/test/java/com/yss/report/bitool/service/DataProviderServiceTest.java	(date 1569659578362)
+@@ -0,0 +1,25 @@
++package com.yss.report.bitool.service;
++
++import com.alibaba.fastjson.JSONObject;
++import com.google.common.base.Functions;
++import com.google.common.collect.Maps;
++import com.google.gson.Gson;
++import com.yss.report.bitool.base.SpringBootTestBase;
++import org.junit.Test;
++import org.springframework.beans.factory.annotation.Autowired;
++
++/**
++ * @author daomingzhu
++ * @date 2019/9/28 16:03
++ */
++public class DataProviderServiceTest extends SpringBootTestBase {
++    @Autowired
++    DataProviderService dataProviderService;
++    @Test
++    public void test1() {
++        JSONObject datasourceO = JSONObject.parseObject("{\"datasourceId\":9,\"userId\":\"1\",\"sourceName\":\"LOCAL_ORACLE\",\"sourceType\":\"jdbc\",\"createTime\":\"Aug 8, 2019 10:29:51 AM\",\"updateTime\":\"Aug 8, 2019 10:29:51 AM\",\"config\":\"{\\\"aggregateProvider\\\":true,\\\"password\\\":\\\"zhudao123\\\",\\\"pooled\\\":true,\\\"driver\\\":\\\"oracle.jdbc.OracleDriver\\\",\\\"jdbcurl\\\":\\\"jdbc:oracle:thin:@localhost/ORCL\\\",\\\"username\\\":\\\"DB_ZHU\\\"}\"}");
++        JSONObject  queryO = JSONObject.parseObject("{\"sql\":\"SELECT * FROM HR.EMPLOYEES\"}");
++        ServiceStatus test = dataProviderService.test(datasourceO, Maps.transformValues(queryO, Functions.toStringFunction()));
++        System.out.println(new Gson().toJson(test));
++    }
++}
+\ No newline at end of file
+Index: src/main/java/com/yss/report/bitool/dataprovider/annotation/ProviderName.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/dataprovider/annotation/ProviderName.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/dataprovider/annotation/ProviderName.java	(date 1569659658200)
+@@ -6,7 +6,9 @@
+ import java.lang.annotation.Target;
+ 
+ /**
+- * Created by yfyuan on 2016/8/18.
++ *
++ * @author yfyuan
++ * @date 2016/8/18
+  */
+ @Target(ElementType.TYPE)
+ @Retention(RetentionPolicy.RUNTIME)
+Index: src/main/java/com/yss/report/bitool/dataprovider/providertype/JdbcDataProvider.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/dataprovider/providertype/JdbcDataProvider.java	(date 1569659998386)
++++ src/main/java/com/yss/report/bitool/dataprovider/providertype/JdbcDataProvider.java	(date 1569659998386)
+@@ -0,0 +1,382 @@
++package com.yss.report.bitool.dataprovider.providertype;
++
++import com.alibaba.druid.pool.DruidDataSource;
++import com.alibaba.druid.pool.DruidDataSourceFactory;
++import com.alibaba.fastjson.JSONObject;
++import com.google.common.base.Charsets;
++import com.google.common.base.Stopwatch;
++import com.google.common.hash.Hashing;
++import com.yss.report.bitool.cache.CacheManager;
++import com.yss.report.bitool.cache.HeapCacheManager;
++import com.yss.report.bitool.dataprovider.DataProvider;
++import com.yss.report.bitool.dataprovider.Initializing;
++import com.yss.report.bitool.dataprovider.aggregator.Aggregatable;
++import com.yss.report.bitool.dataprovider.annotation.DatasourceParameter;
++import com.yss.report.bitool.dataprovider.annotation.ProviderName;
++import com.yss.report.bitool.dataprovider.annotation.QueryParameter;
++import com.yss.report.bitool.dataprovider.config.AggConfig;
++import com.yss.report.bitool.dataprovider.result.AggregateResult;
++import com.yss.report.bitool.dataprovider.util.DPCommonUtils;
++
++import com.yss.report.bitool.dataprovider.util.SqlHelper;
++import org.apache.commons.collections.map.HashedMap;
++import org.apache.commons.lang3.StringUtils;
++
++import org.slf4j.Logger;
++import org.slf4j.LoggerFactory;
++import org.springframework.beans.factory.annotation.Value;
++
++import javax.sql.DataSource;
++import java.sql.*;
++import java.util.*;
++import java.util.concurrent.*;
++
++/**
++ * Created by yfyuan on 2016/8/17.
++ */
++@ProviderName(name = "jdbc")
++public class JdbcDataProvider extends DataProvider implements Aggregatable, Initializing {
++
++    private static final Logger LOG = LoggerFactory.getLogger(JdbcDataProvider.class);
++
++    @Value("${dataprovider.resultLimit:300000}")
++    private int resultLimit;
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.JDBC.DRIVER'|translate}} *",
++            type = DatasourceParameter.Type.Input,
++            required = true,
++            order = 1)
++    private String DRIVER = "driver";
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.JDBC.JDBCURL'|translate}} *",
++            type = DatasourceParameter.Type.Input,
++            required = true,
++            order = 2)
++    private String JDBC_URL = "jdbcurl";
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.JDBC.USERNAME'|translate}} *",
++            type = DatasourceParameter.Type.Input,
++            required = true,
++            order = 3)
++    private String USERNAME = "username";
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.JDBC.PASSWORD'|translate}}",
++            type = DatasourceParameter.Type.Password,
++            order = 4)
++    private String PASSWORD = "password";
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.POOLEDCONNECTION'|translate}}",
++            checked = true,
++            type = DatasourceParameter.Type.Checkbox,
++            order = 99)
++    private String POOLED = "pooled";
++
++    @DatasourceParameter(label = "{{'DATAPROVIDER.AGGREGATABLE_PROVIDER'|translate}}",
++            checked = true,
++            type = DatasourceParameter.Type.Checkbox,
++            order = 100)
++    private String aggregateProvider = "aggregateProvider";
++
++    @QueryParameter(label = "{{'DATAPROVIDER.JDBC.SQLTEXT'|translate}}",
++            type = QueryParameter.Type.TextArea,
++            required = true,
++            order = 1)
++    private String SQL = "sql";
++
++    private static final CacheManager<Map<String, Integer>> typeCahce = new HeapCacheManager<>();
++
++    private static final ConcurrentMap<String, DataSource> datasourceMap = new ConcurrentHashMap<>();
++
++    private SqlHelper sqlHelper;
++
++    @Override
++    public boolean doAggregationInDataSource() {
++        String v = dataSource.get(aggregateProvider);
++        return v != null && "true".equals(v);
++    }
++
++    @Override
++    public String[][] getData() throws Exception {
++        final int batchSize = 100000;
++        Stopwatch stopwatch = Stopwatch.createStarted();
++        LOG.debug("Execute JdbcDataProvider.getData() Start!");
++        String sql = getAsSubQuery(query.get(SQL));
++        List<String[]> list = null;
++        LOG.info("SQL String: " + sql);
++
++        try (Connection con = getConnection();
++             Statement ps = con.createStatement();
++             ResultSet rs = ps.executeQuery(sql)) {
++
++            ResultSetMetaData metaData = rs.getMetaData();
++            int columnCount = metaData.getColumnCount();
++            list = new LinkedList<>();
++            String[] row = new String[columnCount];
++            for (int i = 0; i < columnCount; i++) {
++                row[i] = metaData.getColumnLabel(i + 1);
++            }
++
++            String[] header = row;
++            getInnerAggregator().beforeLoad(header);
++
++            int resultCount = 0;
++            int threadId = 0;
++            ExecutorService executor = Executors.newFixedThreadPool(5);
++            while (rs.next()) {
++                resultCount++;
++                row = new String[columnCount];
++                for (int j = 0; j < columnCount; j++) {
++                    row[j] = rs.getString(j + 1);
++                }
++                list.add(row);
++
++                if (resultCount % batchSize == 0) {
++                    LOG.info("JDBC load batch {}", resultCount);
++                    final String[][] batchData = list.toArray(new String[][]{});
++                    Thread loadThread = new Thread(() -> {
++                        getInnerAggregator().loadBatch(header, batchData);
++                    }, threadId++ + "");
++                    executor.execute(loadThread);
++                    list.clear();
++                }
++                if (resultCount > resultLimit) {
++                    throw new Exception("Cube result count " + resultCount + ", is greater than limit " + resultLimit);
++                }
++            }
++            executor.shutdown();
++            while (!executor.awaitTermination(10, TimeUnit.SECONDS));
++            final String[][] batchData = list.toArray(new String[][]{});
++            getInnerAggregator().loadBatch(header, batchData);
++        } catch (Exception e) {
++            LOG.error("ERROR:" + e.getMessage());
++            throw new Exception("ERROR:" + e.getMessage(), e);
++        }
++        getInnerAggregator().afterLoad();
++        stopwatch.stop();
++        LOG.info("getData() using time: {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
++        return null;
++    }
++
++    @Override
++    public void test() throws Exception {
++        String queryStr = query.get(SQL);
++        LOG.info("Execute query: {}", queryStr);
++        try (Connection con = getConnection();
++             Statement ps = con.createStatement()) {
++            ps.executeQuery(queryStr);
++        } catch (Exception e) {
++            LOG.error("Error when execute: {}",  queryStr);
++            throw new Exception("ERROR:" + e.getMessage(), e);
++        }
++    }
++
++
++    /**
++     * Convert the sql text to subquery string:
++     * remove blank line
++     * remove end semicolon ;
++     *
++     * @param rawQueryText
++     * @return
++     */
++    private String getAsSubQuery(String rawQueryText) {
++        String deletedBlankLine = rawQueryText.replaceAll("(?m)^[\\s\t]*\r?\n", "").trim();
++        return deletedBlankLine.endsWith(";") ? deletedBlankLine.substring(0, deletedBlankLine.length() - 1) : deletedBlankLine;
++    }
++
++    private Connection getConnection() throws Exception {
++        String usePool = dataSource.get(POOLED);
++        String username = dataSource.get(USERNAME);
++        String password = dataSource.get(PASSWORD);
++        Connection conn = null;
++        if (usePool != null && "true".equals(usePool)) {
++            String key = Hashing.md5().newHasher().putString(JSONObject.toJSON(dataSource).toString(), Charsets.UTF_8).hash().toString();
++            DataSource ds = datasourceMap.get(key);
++            if (ds == null) {
++                synchronized (key.intern()) {
++                    ds = datasourceMap.get(key);
++                    if (ds == null) {
++                        Map<String, String> conf = new HashMap<>();
++                        conf.put(DruidDataSourceFactory.PROP_DRIVERCLASSNAME, dataSource.get(DRIVER));
++                        conf.put(DruidDataSourceFactory.PROP_URL, dataSource.get(JDBC_URL));
++                        conf.put(DruidDataSourceFactory.PROP_USERNAME, dataSource.get(USERNAME));
++                        if (StringUtils.isNotBlank(password)) {
++                            conf.put(DruidDataSourceFactory.PROP_PASSWORD, dataSource.get(PASSWORD));
++                        }
++                        conf.put(DruidDataSourceFactory.PROP_INITIALSIZE, "3");
++                        DruidDataSource druidDS = (DruidDataSource) DruidDataSourceFactory.createDataSource(conf);
++                        druidDS.setBreakAfterAcquireFailure(true);
++                        druidDS.setConnectionErrorRetryAttempts(5);
++                        datasourceMap.put(key, druidDS);
++                        ds = datasourceMap.get(key);
++                    }
++                }
++            }
++            try {
++                conn = ds.getConnection();
++            } catch (SQLException e) {
++                datasourceMap.remove(key);
++                    throw e;
++            }
++            return conn;
++        } else {
++            String driver = dataSource.get(DRIVER);
++            String jdbcurl = dataSource.get(JDBC_URL);
++
++            Class.forName(driver);
++            Properties props = new Properties();
++            props.setProperty("user", username);
++            if (StringUtils.isNotBlank(password)) {
++                props.setProperty("password", password);
++            }
++            return DriverManager.getConnection(jdbcurl, props);
++        }
++    }
++
++    @Override
++    public String[] queryDimVals(String columnName, AggConfig config) throws Exception {
++        String fsql = null;
++        String exec = null;
++        String sql = getAsSubQuery(query.get(SQL));
++        List<String> filtered = new ArrayList<>();
++        String whereStr = "";
++        if (config != null) {
++            whereStr = sqlHelper.assembleFilterSql(config);
++        }
++        fsql = "SELECT cb_view.%s FROM (\n%s\n) cb_view %s GROUP BY cb_view.%s";
++        exec = String.format(fsql, columnName, sql, whereStr, columnName);
++        LOG.info(exec);
++        try (Connection connection = getConnection();
++             Statement stat = connection.createStatement();
++             ResultSet rs = stat.executeQuery(exec)) {
++            while (rs.next()) {
++                filtered.add(rs.getString(1));
++            }
++        } catch (Exception e) {
++            LOG.error("ERROR:" + e.getMessage());
++            throw new Exception("ERROR:" + e.getMessage(), e);
++        }
++        return filtered.toArray(new String[]{});
++    }
++
++
++    private ResultSetMetaData getMetaData(String subQuerySql, Statement stat) throws Exception {
++        ResultSetMetaData metaData;
++        try {
++            stat.setMaxRows(100);
++            String fsql = "\nSELECT * FROM (\n%s\n) cb_view WHERE 1=0";
++            String sql = String.format(fsql, subQuerySql);
++            LOG.info(sql);
++            ResultSet rs = stat.executeQuery(sql);
++            metaData = rs.getMetaData();
++        } catch (Exception e) {
++            LOG.error("ERROR:" + e.getMessage());
++            throw new Exception("ERROR:" + e.getMessage(), e);
++        }
++        return metaData;
++    }
++
++    private Map<String, Integer> getColumnType() throws Exception {
++        Map<String, Integer> result = null;
++        String key = getLockKey();
++        result = typeCahce.get(key);
++        if (result != null) {
++            return result;
++        } else {
++            try (
++                    Connection connection = getConnection();
++                    Statement stat = connection.createStatement()
++            ) {
++                String subQuerySql = getAsSubQuery(query.get(SQL));
++                ResultSetMetaData metaData = getMetaData(subQuerySql, stat);
++                int columnCount = metaData.getColumnCount();
++                result = new HashedMap();
++                for (int i = 0; i < columnCount; i++) {
++                    result.put(metaData.getColumnLabel(i + 1).toUpperCase(), metaData.getColumnType(i + 1));
++                }
++                typeCahce.put(key, result, 12 * 60 * 60 * 1000);
++                return result;
++            }
++        }
++    }
++
++    @Override
++    public String[] getColumn() throws Exception {
++        String subQuerySql = getAsSubQuery(query.get(SQL));
++        try (
++                Connection connection = getConnection();
++                Statement stat = connection.createStatement()
++        ) {
++            ResultSetMetaData metaData = getMetaData(subQuerySql, stat);
++            int columnCount = metaData.getColumnCount();
++            String[] row = new String[columnCount];
++            for (int i = 0; i < columnCount; i++) {
++                row[i] = metaData.getColumnLabel(i + 1);
++            }
++            return row;
++        }
++    }
++
++    @Override
++    public AggregateResult queryAggData(AggConfig config) throws Exception {
++        String exec = sqlHelper.assembleAggDataSql(config);
++        List<String[]> list = new LinkedList<>();
++        LOG.info(exec);
++        try (
++                Connection connection = getConnection();
++                Statement stat = connection.createStatement();
++                ResultSet rs = stat.executeQuery(exec)
++        ) {
++            ResultSetMetaData metaData = rs.getMetaData();
++            int columnCount = metaData.getColumnCount();
++            while (rs.next()) {
++                String[] row = new String[columnCount];
++                for (int j = 0; j < columnCount; j++) {
++                    int columType = metaData.getColumnType(j + 1);
++                    switch (columType) {
++                    case java.sql.Types.DATE:
++                        row[j] = rs.getDate(j + 1).toString();
++                        break;
++                    default:
++                        row[j] = rs.getString(j + 1);
++                        break;
++                    }
++                }
++                list.add(row);
++            }
++        } catch (Exception e) {
++            LOG.error("ERROR:" + e.getMessage());
++            throw new Exception("ERROR:" + e.getMessage(), e);
++        }
++        return DPCommonUtils.transform2AggResult(config, list);
++    }
++
++
++    @Override
++    public String viewAggDataQuery(AggConfig config) throws Exception {
++        return sqlHelper.assembleAggDataSql(config);
++    }
++
++
++    @Override
++    public void afterPropertiesSet() throws Exception {
++        String subQuery = null;
++        if (query != null) {
++            subQuery = getAsSubQuery(query.get(SQL));
++        }
++        SqlHelper sqlHelper = new SqlHelper(subQuery, true);
++        if (!isUsedForTest()) {
++            Map<String, Integer> columnTypes = null;
++            try {
++                columnTypes = getColumnType();
++            } catch (Exception e) {
++                //  getColumns() and test() methods do not need columnTypes properties,
++                // it doesn't matter for these methods even getMeta failed
++                LOG.warn("getColumnType failed: {}", e.getMessage());
++            }
++            sqlHelper.getSqlSyntaxHelper().setColumnTypes(columnTypes);
++        }
++        this.sqlHelper = sqlHelper;
++    }
++
++}
+Index: src/main/java/com/yss/report/bitool/entity/DashboardWidget.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardWidget.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardWidget.java	(date 1569655486507)
+@@ -3,7 +3,7 @@
+ import java.util.Date;
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_WIDGET")
++@Table(name = "DASHBOARD_WIDGET")
+ public class DashboardWidget {
+     @Id
+     @Column(name = "WIDGET_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardJob.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardJob.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardJob.java	(date 1569655486580)
+@@ -3,7 +3,7 @@
+ import java.util.Date;
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_JOB")
++@Table(name = "DASHBOARD_JOB")
+ public class DashboardJob {
+     @Id
+     @Column(name = "JOB_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardBoard.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardBoard.java	(date 1569655486492)
+@@ -3,7 +3,7 @@
+ import java.util.Date;
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_BOARD")
++@Table(name = "DASHBOARD_BOARD")
+ public class DashboardBoard {
+     @Id
+     @Column(name = "BOARD_ID")
+Index: src/main/resources/application-dev.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/application-dev.yml	(date 1565846378000)
++++ src/main/resources/application-dev.yml	(date 1569658411128)
+@@ -2,10 +2,13 @@
+   datasource:
+     oracle:
+       url: jdbc:oracle:thin:@localhost:1521/orcl
+-      username: dmz
++      username: db_zhu
+       password: zhudao123
+       type: com.alibaba.druid.pool.DruidDataSource
+       driverClassName: oracle.jdbc.driver.OracleDriver
++      maxReconnectsautoReconnect: 2
++      name: CBoard Meta Data
++      validationQuery: SELECT 'x' from dual
+     h2:
+       url: jdbc:h2:~/H2Data/cboard;AUTO_SERVER=TRUE;LOG=0;UNDO_LOG=0
+       username: sa
+Index: src/main/java/com/yss/report/bitool/entity/DashboardCategory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardCategory.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardCategory.java	(date 1569655486593)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_CATEGORY")
++@Table(name = "DASHBOARD_CATEGORY")
+ public class DashboardCategory {
+     @Id
+     @Column(name = "CATEGORY_ID")
+Index: src/main/java/com/yss/report/bitool/entity/DashboardDatasource.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardDatasource.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardDatasource.java	(date 1569655486568)
+@@ -3,7 +3,7 @@
+ import java.util.Date;
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_DATASOURCE")
++@Table(name = "DASHBOARD_DATASOURCE")
+ public class DashboardDatasource {
+     @Id
+     @Column(name = "DATASOURCE_ID")
+Index: src/main/resources/application-datasource.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/application-datasource.yml	(date 1565846378000)
++++ src/main/resources/application-datasource.yml	(date 1569658265464)
+@@ -2,7 +2,7 @@
+   datasource:
+     oracle:
+       url: jdbc:oracle:thin:@localhost:1521/orcl
+-      username: dmz
++      username: db_zhu
+       password: zhudao123
+       type: com.alibaba.druid.pool.DruidDataSource
+       driverClassName: oracle.jdbc.driver.OracleDriver
+Index: src/main/java/com/yss/report/bitool/entity/DashboardBoardParam.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/yss/report/bitool/entity/DashboardBoardParam.java	(date 1565846378000)
++++ src/main/java/com/yss/report/bitool/entity/DashboardBoardParam.java	(date 1569655486615)
+@@ -2,7 +2,7 @@
+ 
+ import javax.persistence.*;
+ 
+-@Table(name = "DMZ.DASHBOARD_BOARD_PARAM")
++@Table(name = "DASHBOARD_BOARD_PARAM")
+ public class DashboardBoardParam {
+     @Id
+     @Column(name = "BOARD_PARAM_ID")

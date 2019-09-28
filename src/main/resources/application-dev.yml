@@ -2,10 +2,13 @@ spring:
   datasource:
     oracle:
       url: jdbc:oracle:thin:@localhost:1521/orcl
-      username: dmz
+      username: db_zhu
       password: zhudao123
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: oracle.jdbc.driver.OracleDriver
+      maxReconnectsautoReconnect: 2
+      name: CBoard Meta Data
+      validationQuery: SELECT 'x' from dual
     h2:
       url: jdbc:h2:~/H2Data/cboard;AUTO_SERVER=TRUE;LOG=0;UNDO_LOG=0
       username: sa

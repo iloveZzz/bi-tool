@@ -33,7 +33,7 @@ public class DataProviderManager implements ApplicationContextAware {
     private static ApplicationContext applicationContext;
 
     static {
-        Set<Class<?>> classSet = new Reflections("org.cboard").getTypesAnnotatedWith(ProviderName.class);
+        Set<Class<?>> classSet = new Reflections("com.yss.report.bitool").getTypesAnnotatedWith(ProviderName.class);
         for (Class c : classSet) {
             if (!c.isAssignableFrom(DataProvider.class)) {
                 providers.put(((ProviderName) c.getAnnotation(ProviderName.class)).name(), c);
