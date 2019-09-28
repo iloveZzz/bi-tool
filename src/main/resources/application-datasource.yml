@@ -2,7 +2,7 @@ spring:
   datasource:
     oracle:
       url: jdbc:oracle:thin:@localhost:1521/orcl
-      username: dmz
+      username: db_zhu
       password: zhudao123
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: oracle.jdbc.driver.OracleDriver

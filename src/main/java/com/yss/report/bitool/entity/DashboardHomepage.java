@@ -2,7 +2,7 @@ package com.yss.report.bitool.entity;
 
 import javax.persistence.*;
 
-@Table(name = "DMZ.DASHBOARD_HOMEPAGE")
+@Table(name = "DASHBOARD_HOMEPAGE")
 public class DashboardHomepage {
     @Id
     @Column(name = "BOARD_ID")

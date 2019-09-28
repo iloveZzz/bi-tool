@@ -3,7 +3,7 @@ package com.yss.report.bitool.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "DMZ.DASHBOARD_WIDGET")
+@Table(name = "DASHBOARD_WIDGET")
 public class DashboardWidget {
     @Id
     @Column(name = "WIDGET_ID")

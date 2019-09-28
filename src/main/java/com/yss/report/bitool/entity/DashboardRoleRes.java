@@ -2,7 +2,7 @@ package com.yss.report.bitool.entity;
 
 import javax.persistence.*;
 
-@Table(name = "DMZ.DASHBOARD_ROLE_RES")
+@Table(name = "DASHBOARD_ROLE_RES")
 public class DashboardRoleRes {
     @Id
     @Column(name = "ROLE_RES_ID")
