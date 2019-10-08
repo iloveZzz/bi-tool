@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * 测试动态数据源
  * @author daomingzhu
  * @date 2019/9/28 16:03
  */
